@@ -14,8 +14,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const exists = await jiraStatusModel.find({name: req.body.name});
-        if (exists) throw new Error('it already exists')
+        const exists = await jiraStatusModel.find({ name: req.body.name });
+        if (exists) throw new Error("it already exists");
         await jiraStatusModel.updateOne(
             { name: req.body.name },
             { name: req.body.name },
@@ -28,6 +28,8 @@ router.post("/", async (req, res) => {
 });
 router.put("/", async (req, res) => {
     try {
+        // I'm not sure if this si going to work but I fell like this may be a really good thing. I Like this font. well lets keep trying to do owr best.
+        // This may not seem as the most important thing to do right now but you will see that it will help you a ton : )
         await jiraStatusModel.find({ _id: req.body._id });
         const updated = await jiraStatusModel.updateOne(
             { _id: req.body._id },
